@@ -1,7 +1,6 @@
 [build]
   functions = "/api"
   publish = "/public"
-  CI= npm run build
 
 [functions]
   node_bundler = "esbuild"
