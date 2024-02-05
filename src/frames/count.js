@@ -6,7 +6,7 @@ import safeDecode from '../../modules/safeDecode';
 const build = async (payload) => {
     let count = await getCount();
     const validData = payload?.validData;
-    
+
     if (payload.validData && payload.referringFrame == 'count') {
         count = await incrementCount(count);
         const tauntInput = validData.data.frameActionBody.inputText;
@@ -24,15 +24,16 @@ const build = async (payload) => {
 
     const html = String.raw;
     const frameHTML = html`
-        <fc-frame>
+        [<fc-frame>
             <div style="font-size: 5em;">
+                💪💪💪💪💪💪
                 i've been framed ${count || 0} times
             </div>
             <div style="font-size: 2em; margin-top: 1em">
                 last framed by @${username || ''}
             </div>
             ${tauntOutput}
-        </fc-frame>
+        </fc-frame>]
     `;
 
     return mainLayout(payload, frameHTML);
@@ -46,11 +47,11 @@ export const inputs = [
 ]
 
 export const buttons = [
-    { 
+    {
         label: '🫵 Frame me!',
         goTo: 'count',
     },
-    { 
+    {
         label: '🎬 View credits',
         goTo: 'credits',
     }
